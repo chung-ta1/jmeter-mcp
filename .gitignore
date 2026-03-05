@@ -12,6 +12,7 @@ dist/
 
 # IDE / Claude
 .claude-plugin/
+.mcp.json
 
 # JMeter results
 tests/results.jtl
