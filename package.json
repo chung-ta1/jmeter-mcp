@@ -1,0 +1,38 @@
+{
+  "name": "jmeter-mcp",
+  "version": "1.0.0",
+  "description": "MCP server plugin for Apache JMeter - run test plans, analyze results, compare performance",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "jmeter-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "prepare": "tsc"
+  },
+  "keywords": [
+    "jmeter",
+    "mcp",
+    "claude-code",
+    "performance",
+    "load-testing"
+  ],
+  "author": "chungta",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^17.3.1",
+    "fast-xml-parser": "^4.5.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.18"
+  }
+}

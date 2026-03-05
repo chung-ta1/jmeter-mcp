@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "jmeter": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/index.js"],
+      "env": {
+        "JMETER_HOME": "${JMETER_HOME:-/usr/local/opt/jmeter}"
+      }
+    }
+  }
+}

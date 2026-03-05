@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+# IDE / Claude
+.claude-plugin/
+
+# JMeter results
+tests/results.jtl
+tests/report/
+jmeter.log

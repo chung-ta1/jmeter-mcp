@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Yenta Agent API Test" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.comments"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Yenta Agent Requests" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">-1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Agent IDs CSV" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="filename">/Users/chungta/development/workspace/jmeter-mcp/tests/agent_ids.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames">agentId</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer 8cff828588f664a5670864a801fb7d3acd7ce5071b8852fa3801b8fa83dfb777808e8d33325c45ee47bbb2cb1dec5dd3b796e5995853421d6c07530d9ef88703e951e58ba759e0755c9f39c9f08504c0e5f538b0ce7a1d2f9f9ced6b8699849443d72af3a8bc8d41d801db723b4a63dee19dfb6105ac3d284a4cbbc61f10b77023f3f1b3ff937a2d1dda35b4f34b415d45a62d9ab81374cc8296c0396f5ea4cbefa84d8a0b53dd5fe72d8cd1f52bd59a815a2ea84f94a586a0d6c2ebd4cbd7882d45cf70bc59f4ddbd8dfd655fd7c717b54e447e3abd11a41cb92d9ebc08fe28326ae3a00dd55f39e2ec5f3a17351fda4ecb35bba7c68bd76f0df14d8456e5b5d298cb5d9af1d931a4123d83001ef05ca80b216c8f78f188175928272bd6dacf0beb0b9ef4974aee6f0dd406bd0128c32fd0fad8ac0fb8bdfe94e964de5706c4b55b84ef2d44d63a255def5fdcd8f9bf44b9b9fd6cab6faf2174be661c299155456bd8bde5ed6af0ed3fdd80954283205807202e1fd1400275dd7f1048b96f5aa7ac3527cf3b08686b4f5bd7a8160660cccf53eb8d1b7f59509d2005133bc5df690b6a767f6598f39aafce69599b4d96a4df943f15b728b31ffe1d6df7220a44542fe304a48cd66c343d16acdf8fde1f8fb208d20c56a9fc8b96d3e35f7f42570ebd9c05b97f181922c97ab87c566d9dcc0d551ec9eb01e9f2bba6ffbd94e31a21275f1687dfff2f3bf937087176898012e13c7341b25e2abc72a7713b8c88cdb899a72293acc6442f739d9ec0e5d38eddc3d82a8b5327a1547bde9d173c92c772a42bb9a8549b4fd2e4c4b379470c3aa9b631f04631dea38a379a03971693c0db4f94d7dbe2fddc91c207992b1a67cd267cb57f5fd5dfe4373ff2af27bbcb38a80006f4eb809b51f2f6ec209539030cb09bb55f07ec04ecc72d92ad3ff3f8db108f43130052bbb5ad26a37a5973687371b227d61611d407cf61ceca39a08d439884aa459a8db0e1bc8f6cfece589c55465cdf783e2489f8c5e6c925b82260317ffe80f60ff670298f70990d2feb1aabc19f33d9db930451c2cb4456cbae41e1c5543ed4ff4c9b63f3e413b45bfefa6747b267a404ffd73636b28e429a097169b40cecc4b24f78027f2a01ed9959de1c5f7e2ef27b46e9e687d922685a7b2027a10f58f73be491bda985ba03f6a5c959b43537a980a5b9961bb333298a83a5fe7a8c189af8e18bee31880e92877eb6c735498aa9124cf225aac7417c43e4a92a25377fed42f8ef5e35044db2fa8aa0723870743fdd8c78785ebf4dd9acfad32d566311caca39c78d67fcf9d91d732bac1afd4879974983581fddc48b3def15fdfd754fae23a58fccc12a9608571c6ad02880af61a43cc3ae4ee1367cf5e667680ec29dd8b2dde18eebd06698171bdc73cd67816c2ca6a6ad91f807a0172520061a98b9de23472bcdfba31df7395c785ff610ef367388e82369be845910bd66902b4c7a860dfc69f474f8472c1fc8183259363d368faf5b5b4d0011415501a3bdf545217a55d7f3cf149a24503d1d84a0f067ef8820a11bfabfc123a8b33befaf130705fa435a87a29697f9be4db656118b93004866353ccffb704993f85829072667ba233c425f05cfa44b6912e92723fc21cd7e3bd952f9f30dd72c536e13edb763578f99c8a03290ed298b2b90f2b71c512998e34db77a46452526923ca15b126328b5757549d81cf66812497c64bfb010cdac33256d44c0da4e4e2f60812cb1501f6e2efe7a379854297dc427fd320bb5e84d46b3ba02f849db5d4455797649c2b586e3defe1f44253d2650c185517af072cc0d68a9fe44e9e2314c9d0dbb7efceeb8d183a21aee88de954836eca2289bf6ecd09a1b26a264b2d9610b4f26cc5a3424f5c345ffd30e2f1a64e71581</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET Agent ${agentId}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">yenta.team1realbrokerage.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/agents/${agentId}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">5000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">30000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
