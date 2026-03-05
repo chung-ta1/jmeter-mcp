@@ -15,6 +15,8 @@ dist/
 .mcp.json
 
 # JMeter results
+jmeter-results-*.jtl
+jmeter-report-*/
 tests/results.jtl
 tests/report/
 jmeter.log

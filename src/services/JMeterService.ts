@@ -24,14 +24,16 @@ export class JMeterService {
     duration?: number;
     rampUp?: number;
   }): Promise<{ resultsFile: string; stdout: string; stderr: string }> {
-    const resultsFile = options.outputPath || `/tmp/jmeter-results-${Date.now()}.jtl`;
+    const timestamp = Date.now();
+    const resultsFile = options.outputPath || path.join(process.cwd(), `jmeter-results-${timestamp}.jtl`);
+    const reportDir = path.join(process.cwd(), `jmeter-report-${timestamp}`);
 
     const args = [
       "-n",
       "-t", options.testPlanPath,
       "-l", resultsFile,
       "-e",
-      "-o", `/tmp/jmeter-report-${Date.now()}`,
+      "-o", reportDir,
     ];
 
     if (options.threads !== undefined) args.push(`-Jthreads=${options.threads}`);
