@@ -10,7 +10,7 @@ An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that 
 ## Installation
 
 ```bash
-git clone https://github.com/chungta/jmeter-mcp.git
+git clone https://github.com/chung-ta1/jmeter-mcp.git
 cd jmeter-mcp
 npm install
 npm run build
