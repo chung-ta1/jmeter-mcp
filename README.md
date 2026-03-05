@@ -50,7 +50,7 @@ claude mcp add --scope user jmeter -e JMETER_HOME=/usr/local/opt/jmeter -- node 
 
 #### Option 2: Edit settings file manually
 
-Add to `~/.claude/mcp.json` (global) or `.claude/mcp.json` (project-level):
+Add to `~/.claude.json` (global) or `.claude/mcp.json` (project-level):
 
 ```json
 {
